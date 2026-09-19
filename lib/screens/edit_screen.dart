@@ -116,7 +116,10 @@ class _EditScreenState extends State<EditScreen> {
                   if (balancecontroller.text == "") {
                     return;
                   }
-                  await AppData.setBalance(int.parse(balancecontroller.text));
+                  int prevbalance = await AppData.balance ?? 0;
+                  int newbalance =
+                      prevbalance + int.parse(balancecontroller.text);
+                  await AppData.setBalance(newbalance);
                   DBHelper helper = DBHelper.getInstance;
                   DateTime dt = DateTime.now();
                   await helper.addTransaction(
