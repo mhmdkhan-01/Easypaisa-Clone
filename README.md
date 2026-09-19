@@ -1,4 +1,4 @@
-# payx
+# easypaisa
 
 A new Flutter project.
 
